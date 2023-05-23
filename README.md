@@ -34,5 +34,3 @@ The generated adversarial examples would be stored in directory `./outputs`. The
 CUDA_VISIBLE_DEVICES=gpuid python simple_eval.py
 ```
 
-### More questions about my paper or exchange ideas
-Send an email to my mailbox: ryc_981015@163.com
