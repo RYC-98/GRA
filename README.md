@@ -14,7 +14,7 @@
 
 ### Prepare the data and models
 
-You should download the [data](https://drive.google.com/drive/folders/1CfobY6i8BfqfWPHL31FKFDipNjqWwAhS) and [pretrained models](https://drive.google.com/drive/folders/10cFNVEhLpCatwECA6SPB-2g0q5zZyfaw) and place the data and pretrained models in dev_data/ and models/, respectively.
+The dataset is the same as [VMI-FGSM](https://github.com/JHL-HUST/VT), you may put them in dev_data/. You can download the [pretrained models](https://drive.google.com/drive/folders/10cFNVEhLpCatwECA6SPB-2g0q5zZyfaw) and place them in models/.
 
 ### GRA
 
