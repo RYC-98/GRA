@@ -34,3 +34,8 @@ The generated adversarial examples would be stored in directory `./outputs`. The
 CUDA_VISIBLE_DEVICES=gpuid python simple_eval.py
 ```
 
+#### About decay indicator
+In our experiments, \eta
+
+
+
