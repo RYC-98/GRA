@@ -35,7 +35,7 @@ CUDA_VISIBLE_DEVICES=gpuid python simple_eval.py
 ```
 
 #### About decay indicator
-In our experiments, we find it would be better to adjust $\eta$ according to different source models. For example, when source model is Inc-v3, a small eta (<0.6) tends to lead higher success rate on IncRes-v2ens, but result relatively low success rate on normally trained models. When eta is around 0.94, results would be relatively stable.
+In our experiments, we find it would be better to adjust $\eta$ according to different source models. For example, when source model is Inc-v3, a small $\eta$ (<0.8) tends to lead higher success rate on IncRes-v2ens, but results relatively low success rate on normally trained models. When $\eta$ is around 0.94, results would be relatively stable.
 
 
 
