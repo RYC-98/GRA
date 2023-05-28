@@ -14,7 +14,7 @@
 
 ### Prepare the data and models
 
-The dataset is the same as [VMI-FGSM](https://github.com/JHL-HUST/VT), you may put them in dev_data/.The [pretrained models](https://drive.google.com/drive/folders/10cFNVEhLpCatwECA6SPB-2g0q5zZyfaw) should be placed in models/.
+Thanks for the selfless contributions of previous work, we adopt the dataset provided in [VMI-FGSM](https://github.com/JHL-HUST/VT), you may put them in dev_data/.The [pretrained models](https://drive.google.com/drive/folders/10cFNVEhLpCatwECA6SPB-2g0q5zZyfaw) should be placed in models/.
 
 ### GRA
 
@@ -34,8 +34,8 @@ The generated adversarial examples would be stored in directory `./outputs`. The
 CUDA_VISIBLE_DEVICES=gpuid python simple_eval.py
 ```
 
-#### About decay indicator
-In our experiments, we find it would be better to adjust $\eta$ according to different source models. For example, when source model is Inc-v3, a small $\eta$ (<0.8) tends to lead higher success rate on IncRes-v2ens, but results relatively low success rate on normally trained models. When $\eta$ is around 0.94, results would be relatively stable, and you can directly set this value.
+#### Fine tune $\eta$ in decay indicator
+In our experiments, we find decreasing $\eta$ tends to lead higher success rate on the most challenging adversarially trained model IncRes-v2ens, but degrades the performance on normally trained models. Setting $\eta$ around 0.94 can maintain a good balance between adversarially trained models and normally trained models.
 
 
 
