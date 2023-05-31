@@ -14,7 +14,7 @@
 
 ### Prepare the data and models
 
-Thanks for the selfless contributions of previous work, we adopt the dataset provided in [VMI-FGSM](https://github.com/JHL-HUST/VT), you may put them in dev_data/.The [pretrained models](https://drive.google.com/drive/folders/10cFNVEhLpCatwECA6SPB-2g0q5zZyfaw) should be placed in models/.
+Thanks for the selfless contribution of previous work, we adopt the dataset and pretrained models provided in [NI-SI-FGSM]([[https://github.com/JHL-HUST/VT](https://github.com/JHL-HUST/SI-NI-FGSM), you may put them in dev_data/ and models/. severally.
 
 ### GRA
 
