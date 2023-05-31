@@ -14,7 +14,7 @@
 
 ### Prepare the data and models
 
-Thanks for the selfless contribution of previous work, we adopt the dataset and pretrained models provided in [NI-SI-FGSM](https://github.com/JHL-HUST/SI-NI-FGSM), you may put them in dev_data/ and models/. severally.
+Thanks for the selfless contribution of previous work, we adopt the dataset and pretrained models provided in [NI-SI-FGSM](https://github.com/JHL-HUST/SI-NI-FGSM), you may put them in dev_data/ and models/ severally.
 
 ### GRA
 
