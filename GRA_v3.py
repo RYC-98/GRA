@@ -166,52 +166,36 @@ def graph(x, y, i, x_max, x_min, grad, samgrad, m):
     alpha = eps / num_iter
     momentum = FLAGS.momentum
     num_classes = 1001
-
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
         logits_v3, end_points_v3 = inception_v3.inception_v3(
             x, num_classes=num_classes, is_training=False, reuse=tf.AUTO_REUSE)
-
     pred = tf.argmax(end_points_v3['Predictions'], 1)
-
     first_round = tf.cast(tf.equal(i, 0), tf.int64)
     y = first_round * pred + (1 - first_round) * y
     one_hot = tf.one_hot(y, num_classes)
-
     cross_entropy = tf.losses.softmax_cross_entropy(one_hot, logits_v3)
     new_grad = tf.gradients(cross_entropy, x)[0]
-
-    
     iter = tf.constant(0)
     max_iter = tf.constant(FLAGS.number)
     _, _, _, _, _, global_grad = tf.while_loop(grad_finish, batch_grad, [x, one_hot, iter, max_iter, eps*FLAGS.beta, tf.zeros_like(new_grad)])
-
     samgrad = global_grad / (1. * FLAGS.number) 
-    
+
     ## Neighbor Weighted Correction ##    
     cossim = tf.reduce_sum(new_grad * samgrad, [1, 2, 3]) / (tf.sqrt(tf.reduce_sum(new_grad ** 2, [1, 2, 3])) * tf.sqrt(tf.reduce_sum(samgrad ** 2, [1, 2, 3])))
-    
     cossim = tf.expand_dims(cossim, -1)
     cossim = tf.expand_dims(cossim, -1)
     cossim = tf.expand_dims(cossim, -1)
-    
     # cossim=tf.maximum(low,cossim)
-    
     current_grad = cossim*new_grad + (1-cossim)*samgrad  
-    
     
     noiselast = grad
     noise = momentum * grad + (current_grad) / tf.reduce_mean(tf.abs(current_grad), [1, 2, 3], keep_dims=True)
-    
-
     eqm = tf.cast(tf.equal(tf.sign(noiselast), tf.sign(noise)), dtype = tf.float32)    
     dim = tf.ones( x.shape ) - eqm       
     m = m * ( eqm + dim * 0.94 )                          
-
-
     x = x + alpha * m * tf.sign(noise)
     x = tf.clip_by_value(x, x_min, x_max)
     i = tf.add(i, 1)
-
     return x, y, i, x_max, x_min, noise, samgrad, m
 
 
