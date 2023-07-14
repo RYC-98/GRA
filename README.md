@@ -1,4 +1,4 @@
-# Boosting Adversarial Transferability via Gradient Relevance Attack (GRA)
+# Boosting Adversarial Transferability via Gradient Relevance Attack 
 
 ## Requirements
 
