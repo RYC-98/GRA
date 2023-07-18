@@ -38,4 +38,7 @@ CUDA_VISIBLE_DEVICES=gpuid python simple_eval.py
 In our experiments, we find decreasing $\eta$ tends to lead higher success rate on the most challenging adversarially trained model IncRes-v2ens, but degrades the performance on normally trained models. Setting $\eta$ around 0.94 can maintain a good balance between adversarially trained models and normally trained models.
 
 
+## Main Results
+Number of samples is set to 20 for each iteration.
+![Results1](https://github.com/RYC-98/GRA/blob/main/Table%201.png)
 
